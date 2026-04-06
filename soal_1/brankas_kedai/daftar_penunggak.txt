@@ -1,0 +1,9 @@
+Mail,Ayam Goreng 2 Paha,10.50,Belum Lunas
+Fizi,Es ABC Spesial,3.50,Belum Lunas
+Ahtong,Kopi O Tarik,2.00,Belum Lunas
+Upin,Nasi Lemak Telur Mata,4.00,Belum Lunas
+Ipin,Ayam Goreng 1 Dada,5.00,Belum Lunas
+Mei Mei,Susu Kedelai,2.50,Belum Lunas
+Susanti,Mie Goreng Mamak,5.50,Belum Lunas
+Ijat,Es Limau,1.50,Belum Lunas
+Ehsan,Nasi Lemak Ayam Goreng,9.50,Belum Lunas
