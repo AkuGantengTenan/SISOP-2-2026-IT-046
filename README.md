@@ -311,6 +311,8 @@ Tidak ada kendala
 
 **Penjelasan**
 
+Buat program C angel.c
+
 ```c
 
 #include <stdio.h>
@@ -339,7 +341,7 @@ const char *sentences[] = {
 const int sentence_count = 4;
 ```
 
-p
+Bagian paling atas kode berfungsi untuk menyertakan pustaka yang diperlukan (seperti pthread.h untuk thread dan unistd.h untuk sistem operasi) serta mendefinisikan lokasi file penting. Program ini menggunakan tiga file utama: .pid untuk mencatat identitas proses agar bisa dihentikan nanti, .log untuk mencatat riwayat aktivitas, dan LoveLetter.txt sebagai target manipulasi teks. Di sini juga didefinisikan sebuah larik teks berisi kalimat-kalimat melankolis yang akan dipilih secara acak oleh program saat dijalankan sebagai daemon.
 
 ```c
 void write_log(const char *process_name, const char *status) {
@@ -416,7 +418,7 @@ char *base64_decode(const char *data, size_t input_length, size_t *output_length
 }
 ```
 
-p
+Kode ini menyertakan fungsi pembantu khusus untuk manajemen data. Fungsi write_log mencatat setiap status operasi (RUNNING, SUCCESS, atau ERROR) lengkap dengan stempel waktu presisi hingga detik. Selain itu, terdapat implementasi manual dari algoritma Base64 Encode dan Decode. Fungsi-fungsi ini bertanggung jawab mengubah teks biasa menjadi format terenkripsi Base64 (mengubah data biner menjadi teks ASCII) dan sebaliknya, yang digunakan untuk "menyembunyikan" isi pesan di dalam file.
 
 ```c
 void daemonize() {
@@ -449,7 +451,7 @@ void daemonize() {
 
 ```
 
-p
+Fungsi daemonize adalah jantung dari operasional latar belakang program ini. Melalui teknik double-forking, program melepaskan diri dari terminal pengguna (sesi shell) sehingga tetap berjalan meskipun terminal ditutup. Program juga memutuskan hubungan dengan input/output standar (stdin, stdout, stderr) dan mencatat PID (Process ID) ke dalam file /tmp/angel.pid. Uniknya, di dalam fungsi main, nama proses ini diubah secara manual menjadi "maya" agar terlihat berbeda di daftar proses sistem
 
 ```c
 void *secret(void *arg) {
@@ -517,7 +519,7 @@ void *surprise(void *arg) {
 
 ```
 
-p
+Saat berjalan sebagai daemon, program meluncurkan dua unit kerja sekaligus menggunakan pthread (multithreading). Thread pertama, secret, bertugas menuliskan kalimat acak ke dalam LoveLetter.txt setiap 10 detik. Thread kedua, surprise, berjalan dengan jeda sedikit lebih lama (11 detik) untuk membaca pesan yang baru saja ditulis oleh thread secret, lalu segera mengubahnya menjadi kode Base64.
 
 ```c
 void do_decrypt() {
@@ -591,7 +593,7 @@ void do_kill() {
 
 ```
 
-p
+Program ini menyediakan dua fitur interaktif yang bisa dipanggil melalui argumen baris perintah. Fungsi do_decrypt digunakan untuk mengembalikan teks Base64 di dalam file menjadi kalimat yang bisa dibaca kembali oleh manusia. Sementara itu, fungsi do_kill bekerja dengan cara membaca PID yang tersimpan di /tmp/angel.pid dan mengirimkan sinyal SIGTERM untuk menghentikan proses daemon "maya" secara bersih dari sistem.
 
 ```c
 int main(int argc, char *argv[]) {
@@ -633,7 +635,7 @@ int main(int argc, char *argv[]) {
 
 ```
 
-p
+Program akan mengecek input pengguna: jika diberikan argumen -daemon, ia akan membelah diri menjadi proses latar belakang dan menjalankan thread pemantau; jika -decrypt, ia akan menjalankan fungsi penerjemah pesan; dan jika -kill, ia akan menghentikan proses yang sedang berjalan.
 
 **Output**
 
