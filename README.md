@@ -91,7 +91,6 @@ Child process keempat dan terakhir bertugas mengunci brankas dengan cara mengomp
 **Output**
 
 
-
 **Kendala**
 
 Tidak ada kendala
@@ -303,6 +302,8 @@ Bagian terakhir adalah fungsi main dan signal_handler. Program mendaftarkan siny
 **Output**
 
 **Kendala**
+
+Tidak ada kendala
 </details>
 
 <details>
@@ -637,4 +638,6 @@ p
 **Output**
 
 **Kendala**
+
+Tidak ada kendala
 </details>
