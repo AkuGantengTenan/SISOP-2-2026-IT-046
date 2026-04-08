@@ -8,8 +8,10 @@
 **Output**
 
 **Kendala**
+</details>
 
 
+<details>
 <summary>Soal 2</summary>
 
 **Penjelasan** 
@@ -17,8 +19,9 @@
 **Output**
 
 **Kendala**
+</details>
 
-
+<details>
 <summary>Soal 3</summary>
 
 **Penjelasan** 
@@ -26,4 +29,4 @@
 **Output**
 
 **Kendala**
-
+</details>
